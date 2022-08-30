@@ -1,9 +1,9 @@
-// import { linearProgressClasses } from '@mui/material';
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 export const stateContext = createContext();
 
 const getFreshContext = () => {
+  // ako je prazan setiraj na nulu
   if (localStorage.getItem('context') === null)
     localStorage.setItem(
       'context',
@@ -13,6 +13,7 @@ const getFreshContext = () => {
         selectedOptions: [],
       }),
     );
+
   return JSON.parse(localStorage.getItem('context'));
 };
 
@@ -33,7 +34,9 @@ export default function useStateContext() {
 export function ContextProvider({ children }) {
   const [context, setContext] = useState(getFreshContext());
 
+  // kad god se promjeni podatak spremiti ce se u localstorage
   useEffect(() => {
+    console.log('Mijenam local storage -', context);
     localStorage.setItem('context', JSON.stringify(context));
   }, [context]);
 

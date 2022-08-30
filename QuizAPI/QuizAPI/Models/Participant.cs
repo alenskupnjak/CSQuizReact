@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QuizAPI.Models
 {
+  /// <summary>
+  /// //////
+  /// </summary>
   public class Participant
   {
     [Key]
@@ -19,6 +22,10 @@ namespace QuizAPI.Models
     public int TimeTaken { get; set; }
   }
 
+
+  /// <summary>
+  /// 
+  /// </summary>
   public class ParticipantRestult
   {
     public int ParticipantId { get; set; }

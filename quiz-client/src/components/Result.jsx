@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router';
 import { createAPIEndpoint, ENDPOINTS } from '../api';
 import { getFormatedTime } from '../helper';
 import useStateContext from '../hooks/useStateContext';
-import { green } from '@mui/material/colors';
+import { green, red } from '@mui/material/colors';
 import Answer from './Answer';
 
 export default function Result() {
@@ -24,6 +24,8 @@ export default function Result() {
 
   useEffect(() => {
     const ids = context.selectedOptions.map((x) => x.qnId);
+    console.log('%c 21 ids ', 'color:green', ids);
+
     createAPIEndpoint(ENDPOINTS.getAnswers)
       .post(ids)
       .then((res) => {
@@ -31,6 +33,8 @@ export default function Result() {
           ...x,
           ...res.data.find((y) => y.qnId === x.qnId),
         }));
+        console.log('%c 22 ', 'color:gold', qna);
+
         setQnAnswers(qna);
         calculateScore(qna);
       })
@@ -40,7 +44,7 @@ export default function Result() {
 
   const calculateScore = (qna) => {
     let tempScore = qna.reduce((acc, curr) => {
-      return curr.answer === curr.selected ? acc + 1 : acc;
+      return curr.answer === curr.selektiranoPitanje ? acc + 1 : acc;
     }, 0);
     setScore(tempScore);
   };
@@ -119,8 +123,9 @@ export default function Result() {
                 m: 'auto',
                 visibility: showAlert ? 'visible' : 'hidden',
               }}
+              color="red"
             >
-              Score Updated.
+              Rezultat spremljen u bazu.
             </Alert>
           </CardContent>
         </Box>

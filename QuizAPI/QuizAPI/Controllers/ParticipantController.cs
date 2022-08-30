@@ -42,6 +42,12 @@ namespace QuizAPI.Controllers
       return participant;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="_participantResult"></param>
+    /// <returns></returns>
     // PUT: api/Participant/5
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPut("{id}")]

@@ -13,11 +13,11 @@ export default function Layout() {
   };
 
   return (
-    <>
+    <React.Fragment>
       <AppBar position="sticky">
         <Toolbar sx={{ width: 640, m: 'auto' }}>
           <Typography variant="h4" align="center" sx={{ flexGrow: 1 }}>
-            Quiz App
+            Quiz Aplikacija
           </Typography>
           <Button onClick={logout}>Logout</Button>
         </Toolbar>
@@ -25,6 +25,6 @@ export default function Layout() {
       <Container>
         <Outlet />
       </Container>
-    </>
+    </React.Fragment>
   );
 }

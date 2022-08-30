@@ -19,7 +19,7 @@ var app = builder.Build();
 /// <summary>
 ///  Ovdije rijesavamo cors-origin problem..
 /// </summary>
-app.UseCors(options => options.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader());
+app.UseCors(options => options.WithOrigins("http://localhost:3001").AllowAnyMethod().AllowAnyHeader());
 
 app.UseStaticFiles(new StaticFileOptions
 {

@@ -26,6 +26,7 @@ export default function Login() {
     useForm(getFreshModel);
 
   useEffect(() => {
+    console.log('%c useEffect Login = ', 'color:blue');
     resetContext();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

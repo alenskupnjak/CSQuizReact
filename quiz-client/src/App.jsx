@@ -6,6 +6,8 @@ import Login from './components/Login';
 import Quiz from './components/Quiz';
 import Result from './components/Result';
 
+// https://www.techiediaries.com/react/react-router-5-4-tutorial-examples
+
 function App() {
   return (
     <BrowserRouter>
@@ -18,7 +20,7 @@ function App() {
           </Route>
         </Route>
       </Routes>
-    </BrowserRouter >
+    </BrowserRouter>
   );
 }
 

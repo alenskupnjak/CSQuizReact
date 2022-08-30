@@ -21,8 +21,8 @@ export default function Answer({ qnAnswers }) {
   };
 
   const markCorrectOrNot = (qna, idx) => {
-    if ([qna.answer, qna.selected].includes(idx)) {
-      return { sx: { color: qna.answer === idx ? green[500] : red[500] } };
+    if ([qna.answer, qna.selektiranoPitanje].includes(idx)) {
+      return { color: qna.answer === idx ? green[500] : red[500] };
     }
   };
 
@@ -39,13 +39,16 @@ export default function Answer({ qnAnswers }) {
             expandIcon={
               <ExpandCircleDownIcon
                 sx={{
-                  color: item.answer === item.selected ? green[500] : red[500],
+                  color:
+                    item.answer === item.selektiranoPitanje
+                      ? green[500]
+                      : red[500],
                 }}
               />
             }
           >
             <Typography sx={{ width: '90%', flexShrink: 0 }}>
-              {item.qnInWords}
+              {item.qnInWords} ajmoo
             </Typography>
           </AccordionSummary>
           <AccordionDetails sx={{ backgroundColor: grey[900] }}>
@@ -59,7 +62,7 @@ export default function Answer({ qnAnswers }) {
             <List>
               {item.options.map((x, i) => (
                 <ListItem key={i}>
-                  <Typography {...markCorrectOrNot(item, i)}>
+                  <Typography sx={markCorrectOrNot(item, i)}>
                     <b>{String.fromCharCode(65 + i) + '. '}</b>
                     {x}
                   </Typography>
